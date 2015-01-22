@@ -4,12 +4,12 @@ Description :  OpenLayers HTML and JQuery functions
 -}
 module OpenLayers.Html where
 
+import           Prelude          hiding (void)
 import           JQuery
 import           Fay.Text
-import           OpenLayers.HtmlInternal
 import           OpenLayers.Internal
+import           OpenLayers.HtmlInternal
 import           Fay.FFI
-import           Prelude          hiding (void)
 
 addTextToHtml :: String -> String -> String -> Fay ()
 addTextToHtml content element id = void $ do

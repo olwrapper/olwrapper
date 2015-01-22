@@ -7,10 +7,10 @@ module OpenLayers.Func where
 import           Prelude hiding (void)
 import           JQuery
 import           Fay.Text hiding (head, tail, map)
-import           OpenLayers.Types
-import           OpenLayers.Html
-import           Fay.FFI
 import           OpenLayers.Internal
+import           OpenLayers.Html
+import           OpenLayers.Types
+import           Fay.FFI
 
 -- * NEW FUNCTION
 
