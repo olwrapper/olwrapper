@@ -1,15 +1,13 @@
 {-|
 Module      :  OpenLayersTypes
-Description :    new types, new data, global constants and mapsource for olwrapper
+Description :  new types, new data, global constants and mapsource for olwrapper
 -}
 module OpenLayers.Types where
-
 -- * Constants
 -- | The 'Projectionlike' for WGS84
 wgs84proj = Projection "EPSG:4326"
 -- | The 'Projectionlike' for Mercator
 mercatorproj = Projection "EPSG:3857"
-
 -- * Types
 -- ** type
 -- | Layers with IDs are using 'GeoId'
@@ -28,27 +26,29 @@ data Coordinate = Coordinate {
     }
 -- | Layer Opacity from min=0 (not visible) to max=100
 data Opacity = Opacity Integer
-data GeoFeature 
-    -- | A GeoLine is a styled line feature with an id
-    = GeoLine { 
-        -- | linepoints as a  list of 'Coordinate'
-        pts :: [Coordinate], 
-        -- | id for the feature with 'GeoId'
-        id :: GeoId, 
-        -- | linestyle with 'GeoLineStyle'
-        lstyle :: GeoLineStyle
-    } 
+-- | defining a new feature to add to the map, possible are 'GeoPoint' and 'GeoLine'
+data GeoFeature =
     -- | A GeoPoint is a styled point feature with an id
-    | GeoPoint {
+    GeoPoint {
         -- | position with a 'Coordinate'
         pt ::  Coordinate, 
+        -- | id for the feature with 'GeoId'
         id :: GeoId, 
         -- | pointstyle with 'GeoPointStyle'
         pstyle :: GeoPointStyle
+    } |
+    -- | A GeoLine is a styled line feature with an id
+    GeoLine { 
+        -- | linepoints as a  list of 'Coordinate'
+        pts :: [Coordinate], 
+        -- haddock only need one id definition
+        id :: GeoId, 
+        -- | linestyle with 'GeoLineStyle'
+        lstyle :: GeoLineStyle
     }
 -- | defining a style for a 'GeoLine' feature
 data GeoLineStyle = GeoLineStyle { 
-        -- | line color, can be a name (red) or code (#8904B1)
+        -- | line color, can be a name (red) or code (#FF0000)
         color :: String, 
         -- | width of the line
         width :: Integer 
@@ -57,9 +57,9 @@ data GeoLineStyle = GeoLineStyle {
 data GeoPointStyle = GeoPointStyle { 
         -- | radius of the circle
         radius :: Integer, 
-        -- | fill color of the circle, can be a name (red) or code (#8904B1)
+        -- | fill color of the circle, can be a name (red) or code (#FF0000)
         fillcolor :: String, 
-        -- | line color of the border of the circle, name (red) or code (#8904B1)
+        -- | line color of the border of the circle, name (red) or code (#FF0000)
         outcolor :: String, 
         -- | width of the border of the circle, if 0 no outcolor needed
         outwidth :: Integer 
@@ -71,11 +71,9 @@ data MapSource
     | Osm  -- ^ MapQuest's OpenStreetMap
     | OSM  -- ^ OpenStreetMap
     deriving (Show, Eq)
-    
 -- * List
 -- | puts the sources from MapQuest in a list
 mapQuests = [Osm, Sat, Hyb]
-
 -- * Functions
 -- | transform 'MapSource' to 'String' and handle wrong input
 showMapSource :: MapSource -> String

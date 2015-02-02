@@ -3,14 +3,12 @@
 
 module Site ( app ) where
 
-import               Data.ByteString     (ByteString)
-import               Snap.Snaplet
-import               Snap.Snaplet.Fay
-import               Snap.Snaplet.Heist
-import               Snap.Util.FileServe
-
-----------------------------------------------------------
-import           Application
+import          Data.ByteString     (ByteString)
+import          Snap.Snaplet
+import          Snap.Snaplet.Fay
+import          Snap.Snaplet.Heist
+import          Snap.Util.FileServe
+import          Application
 
 routes :: [(ByteString, AppHandler ())]
 routes = [

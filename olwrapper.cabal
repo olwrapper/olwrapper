@@ -1,5 +1,5 @@
 Name:           olwrapper
-Version:        0.3.8
+Version:        0.4.1
 Synopsis:       An OpenLayers JavaScript Wrapper and Webframework with snaplet-fay
 Description:    Haskell OpenLayers Wrapper
                 .
@@ -22,7 +22,8 @@ extra-source-files:
     README.md
     snaplets/fay/devel.cfg
     snaplets/heist/templates/index.tpl
-    static/dummy
+    static/jquery.min.2.1.3.js
+    static/ol.3.1.1.js
     snaplets/fay/src/Index.hs
     src/Application.hs
     src/Main.hs
@@ -39,7 +40,6 @@ library
         OpenLayers
         OpenLayers.Func
         OpenLayers.Html
-        OpenLayers.HtmlInternal
         OpenLayers.Internal
         OpenLayers.Types
         OlApp

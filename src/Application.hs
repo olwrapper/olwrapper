@@ -3,10 +3,10 @@
 
 module Application where
 
-import Control.Lens
-import Snap.Snaplet
-import Snap.Snaplet.Heist
-import Snap.Snaplet.Fay
+import          Control.Lens
+import          Snap.Snaplet
+import          Snap.Snaplet.Heist
+import          Snap.Snaplet.Fay
 
 data App = App { 
        _heist :: Snaplet (Heist App)
